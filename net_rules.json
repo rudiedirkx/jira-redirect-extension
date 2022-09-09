@@ -1,0 +1,27 @@
+[
+	{
+		"id": 1,
+		"priority": 2,
+		"action": {
+			"type": "allow"
+		},
+		"condition": {
+			"regexFilter": "oldIssueView=true",
+			"resourceTypes": ["main_frame"]
+		}
+	},
+	{
+		"id": 2,
+		"priority": 1,
+		"action": {
+			"type": "redirect",
+			"redirect": {
+				"regexSubstitution": "\\1?oldIssueView=true"
+			}
+		},
+		"condition": {
+			"regexFilter": "(/browse/[^\\?\\#]+).*?$",
+			"resourceTypes": ["main_frame"]
+		}
+	}
+]
