@@ -6,8 +6,8 @@
 			"type": "allow"
 		},
 		"condition": {
-			"regexFilter": "oldIssueView=true",
-			"resourceTypes": ["main_frame"]
+			"regexFilter": "[?&]oldIssueView=true",
+			"resourceTypes": ["main_frame", "sub_frame"]
 		}
 	},
 	{
@@ -16,12 +16,22 @@
 		"action": {
 			"type": "redirect",
 			"redirect": {
-				"regexSubstitution": "\\1?oldIssueView=true"
+				"transform": {
+					"queryTransform": {
+						"removeParams": ["filter"],
+						"addOrReplaceParams": [
+							{
+								"key": "oldIssueView",
+								"value": "true"
+							}
+						]
+					}
+				}
 			}
 		},
 		"condition": {
-			"regexFilter": "(/browse/[^\\?\\#]+).*?$",
-			"resourceTypes": ["main_frame"]
+			"urlFilter": "/browse/",
+			"resourceTypes": ["main_frame", "sub_frame"]
 		}
 	}
 ]
