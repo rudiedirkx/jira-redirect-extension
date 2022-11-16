@@ -6,7 +6,7 @@
 			"type": "allow"
 		},
 		"condition": {
-			"regexFilter": "[?&]oldIssueView=",
+			"regexFilter": "[?&](old|new)IssueView=true",
 			"resourceTypes": ["main_frame", "sub_frame"]
 		}
 	},
