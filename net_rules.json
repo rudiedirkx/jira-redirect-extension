@@ -6,7 +6,7 @@
 			"type": "allow"
 		},
 		"condition": {
-			"regexFilter": "[?&]oldIssueView=true",
+			"regexFilter": "[?&]oldIssueView=",
 			"resourceTypes": ["main_frame", "sub_frame"]
 		}
 	},
@@ -18,7 +18,7 @@
 			"redirect": {
 				"transform": {
 					"queryTransform": {
-						"removeParams": ["filter"],
+						"removeParams": ["filter", "jql"],
 						"addOrReplaceParams": [
 							{
 								"key": "oldIssueView",
