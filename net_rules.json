@@ -1,36 +1,15 @@
 [
 	{
-		"id": 1,
-		"priority": 2,
-		"action": {
-			"type": "allow"
-		},
-		"condition": {
-			"regexFilter": "[?&](old|new)IssueView=true",
-			"resourceTypes": ["main_frame", "sub_frame"]
-		}
-	},
-	{
 		"id": 2,
 		"priority": 1,
 		"action": {
 			"type": "redirect",
 			"redirect": {
-				"transform": {
-					"queryTransform": {
-						"removeParams": ["filter", "jql"],
-						"addOrReplaceParams": [
-							{
-								"key": "oldIssueView",
-								"value": "true"
-							}
-						]
-					}
-				}
+				"regexSubstitution": "/browse/\\2"
 			}
 		},
 		"condition": {
-			"urlFilter": "/browse/",
+			"regexFilter": "(\/(?:browse|issues)\/(\\w+\\-\\d+).*)$",
 			"resourceTypes": ["main_frame", "sub_frame"]
 		}
 	}
